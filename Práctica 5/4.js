@@ -14,7 +14,7 @@ function limpiarPantalla() {
     contexto.clearRect(0, 0, 1450, 675);//método que borra los píxeles de un rectángulo dado, x,y, width, height
 }
 
-let imagenes = ['imagen1.jpg', 'imagen2.jpg', 'imagen3.jpg', 'imagen4.jpg', 'imagen5.jpg', 'imagen6.jpg'];  // Crea un array con las rutas a las imágenes.
+let imagenes = ['imagen1.jpg', 'imagen2.jpg', 'imagen3.jpg', 'imagen4.jpg', 'imagen5.jpg', 'imagen6.jpg', 'imagen7.jpg', 'imagen8.jpg'];  // Crea un array con las rutas a las imágenes.
 let index = 0;  // Inicializa un índice a 0 para rastrear la imagen actual.
 
 function mostrarImagen() { // Define una función llamada "mostrarImagen".
@@ -37,6 +37,6 @@ window.addEventListener("DOMContentLoaded", function () {
         contexto.fillStyle = "lightgrey";
         contexto.fillRect(0, 0, 1450, 675);//dibuja rectangulo gris 
         mostrarImagen();  // Llama a la función "mostrarImagen" para mostrar la primera imagen.
-        setInterval(mostrarImagen, 2000);  // Establece un intervalo para llamar a "mostrarImagen" cada 2 segundos.
+        setInterval(mostrarImagen, 200);  // Establece un intervalo para llamar a "mostrarImagen" cada 2 segundos.
     }
 });
