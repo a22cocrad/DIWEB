@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TUTORIAL CSS3 - 2023/2024 - Diseño de Interfaces Web - CFGS DAW - IES Gran Capitán</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/Pseudos_Css3.css">
+    <script src="js/prism.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html">TUTORIAL CSS3 - 2023/2024</a></h1>
+        <h2><img src="icon/language-css3.svg"></h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Bordes.html">Bordes</a></li>
+            <li><a href="Fondos.html">Fondos</a></li>
+            <li><a href="Efectos_texto.html">Fuentes y Ef Texto</a></li>
+            <li><a href="Transformaciones.html">Transformac.</a></li>
+            <li><a href="Transiciones.html">Transiciones</a></li>
+            <li><a href="Animaciones.html">Animaciones</a></li>
+            <li><a href="Col_mult.html">Col Múltiples</a></li>
+            <li><a href="Color.html">Color y Degradado</a></li>
+            <li><a href="Pseudos_Css3.html">Pseudos CSS3</a></li>
+            <li><a href="Svg_filter.html">Filter y SVG</a></li>
+
+        </ul>
+    </nav>
+    <main>
+        <div>
+            <h2>TUTORIAL CSS3</h2>
+            <h3>Resultado de la combinación de todos los ejercicios de la práctica 7 de los alumnos de 2ºDAW 2023-2024
+            </h3>
+        </div>
+        <section>
+            <h2>PSEUDOCLASES</h2>
+            <article>
+                <h3>:active</h3>
+                <p>
+                    La pseudoclase <span>:active</span> representa a un elemento que el usuario ha activado,
+                    generalmente, haciendo clic sobre el elemento con el botón izquierdo del ratón. Se suele utilizar en
+                    botones y enlaces.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:active {
+    /* Definición de estilos */
+}</code></pre>
+                <p>Los estilos definidos por <span>:active</span> pueden ser anulados por las posteriores definiciones
+                    de <span>:link</span>,
+                    <span>:hover</span> o <span>:visited</span>. Es una buena práctica colocar <span>:active</span>
+                    después de todas las definiciones
+                    de estilo de los enlaces.
+                </p>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">button:active {
+    color: red;
+    background-color: black;
+}
+                
+a:active {
+    background-color: yellow;
+    text-decoration: none;
+}</code></pre>
+                <button class="pseudos-active1">Al pinchar en el botón, pasará a tener texto rojo sobre fondo
+                    negro</button>
+                <a href="#pseudos-active2" class="pseudos-active2">Al pinchar en el enlace, se pondrá
+                    sobre fondo amarillo y no tendrá subrayado</a>
+            </article>
+
+
+            <article>
+                <h3>:any-link</h3>
+                <p>
+                    La pseudoclase <span>:any-link</span> de CSS representa a un elemento que actúa como el ancla
+                    origen de un hipervínculo independientemente de si ha sido visitado, es decir, coincide con
+                    cualquier elemento &lta&gt, &ltarea&gt o &ltlink&gt con un atributo href. Por lo tanto,
+                    coincide con todos los elementos que coincidan con <span>:link</span> o <span>:visited</span>.
+                </p>
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:any-link {
+    /* Definición de estilos */
+}</code></pre>
+                <p>Los estilos definidos por <span>:active</span> pueden ser anulados por las posteriores definiciones
+                    de <span>:link</span>,
+                    <span>:hover</span> o <span>:visited</span>. Es una buena práctica colocar <span>:active</span>
+                    después de todas las definiciones
+                    de estilo de los enlaces.
+                </p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">a:any-link {
+    border: 1px solid blue;
+    color: orange;
+}
+</code></pre>
+                <a href="#pseudos-any-link" class="pseudos-any-link">Enlace de destino interno</a><br />
+                <a class="pseudos-any-link">Enlace de marcador de posición (no se personalizará)</a>
+            </article>
+
+
+            <article>
+                <h3>:checked</h3>
+                <p>
+                    La pseudoclase <span>:checked</span> se usa principalmente con elementos de formulario, como
+                    casillas
+                    de verificación y botones de opción.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">input[type="checkbox"]:checked {
+    /* Definición de estilos */
+}</code></pre>
+                <p>
+                    El usuario puede activar este estado marcando/seleccionando un elemento, o desactivándolo
+                    desmarcando el elemento.
+                </p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">input[type="checkbox"]:checked {
+    margin: 50px
+}
+</code></pre>
+                <label>
+                    <input type="checkbox" class="pseudos-checked"> Marca la casilla
+                </label>
+            </article>
+            <article>
+                <h3>:current</h3>
+                <p>
+                    La pseudoclase <span>:current</span> se utiliza en el contexto de navegación y se aplica a un
+                    enlace &lta&gt que representa la página actual. Es decir, selecciona el enlace que corresponde a la
+                    página en la que te encuentras actualmente.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">a:current {
+    /* Definición de estilos */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">a:current {
+    color: red;
+    font-weight: bold;
+}
+</code></pre>
+                <a href="#pseudos-current" class="pseudos-current">Enlace en página actual</a></br>
+                <a href="https://example.com/">Enlace en página externa</a>
+            </article>
+
+
+            <article>
+                <h3>:default</h3>
+                <p>
+                    La pseudoclase <span>:default</span> de CSS representa cualquier elemento de formulario que sea el
+                    predeterminado
+                    entre un grupo de elementos relacionados.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">input:default {
+    /* Definición de estilos */
+}</code></pre>
+                <p>
+                    Los elementos agrupados que permiten selecciones múltiples también pueden tener múltiples valores
+                    predeterminados,
+                    es decir, pueden tener múltiples elementos seleccionados inicialmente.
+                </p>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">input:default {
+    box-shadow: 0 0 2px 1px coral;
+}
+</code></pre>
+                <input type="radio" name="estaciones" class="pseudos-default" />
+                <label for="primavera">Primavera</label>
+
+                <input type="radio" name="estaciones" class="pseudos-default" />
+                <label for="verano">Verano</label>
+
+                <input type="radio" name="estaciones" class="pseudos-default" checked />
+                <label for="otoño">Otoño</label>
+
+                <input type="radio" name="estaciones" class="pseudos-default" />
+                <label for="invierno">Invierno</label>
+            </article>
+
+
+            <article>
+                <h3>:disabled</h3>
+                <p>
+                    La pseudoclase <span>:disabled</span> de CSS representa a cualquier elemento deshabilitado. Un
+                    elemento se encuentra
+                    deshabilitado si no puede ser activado (por ejemplo ser selecionado, hacer click en él o aceptar
+                    texto de entrada)
+                    ni aceptar el foco.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">input:disabled {
+    /* Definición de estilos */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">input:disabled {
+    background-color: #ccc;
+}
+</code></pre>
+                <fieldset>
+                    <legend>Dirección de Envío</legend>
+                    <input class="pseudos-disabled" type="text" placeholder="Nombre" />
+                    <input class="pseudos-disabled" type="text" placeholder="Dirección" />
+                    <input class="pseudos-disabled" type="text" placeholder="Código postal" />
+                    <input class="pseudos-disabled" type="text" placeholder="DNI" disabled>
+                </fieldset>
+            </article>
+
+
+            <article>
+                <h3>:empty</h3>
+                <p>
+                    La pseudo-clase :empty de CSS representa cualquier elemento que no tenga hijos. Los hijos pueden ser
+                    nodos de elemento o texto (incluido el espacio en blanco). Los comentarios o las instrucciones de
+                    procesamiento
+                    no afectan si un elemento se considera vacío.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:empty {
+    /* Definición de estilos */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:empty {
+    background: lime;
+}
+</code></pre>
+                <div class="pseudos-empty">Voy a ser de color rosa.</div>
+                <div class="pseudos-empty"><!-- Voy a ser de color lima. --></div>
+                <div class="pseudos-empty">
+                    <!-- Seré de color rosa debido a los espacios en blanco alrededor de este comentario. -->
+                </div>
+            </article>
+
+
+            <article>
+                <h3>:enabled</h3>
+                <p>
+                    La pseudoclase <span>:enabled</span> CSS representa cualquier elemento habilitado. Un elemento está
+                    habilitado si
+                    puede ser activado (es decir seleccionado, se puede hacer click en él, acepta que se le introduzca
+                    texto, etc.)
+                    o si accepta el foco.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">input:enabled {
+    /* Definición de estilos */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">input:enabled {
+    background: lime;
+}
+</code></pre>
+                <button class="pseudos-enabled" disabled>Botón Deshabilitado</button>
+                <button class="pseudos-enabled">Botón Habilitado</button>
+            </article>
+
+
+            <article>
+                <h3>:first-child</h3>
+                <p>
+                    La pseudoclase <span>:first-child</span> de CSS representa el primer elemento entre un grupo de
+                    elementos hermanos.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:first-child {
+    /* Definición de estilos */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:first-child {
+    color: lime;
+    background-color: black;
+    padding: 5px;
+}
+</code></pre>
+                <div>
+                    <p class="pseudos-first-child">¡Este texto es el primero!</p>
+                    <p class="pseudos-first-child">Este texto no es el primero.</p>
+                    <p class="pseudos-first-child">Este texto no es el primero.</p>
+                </div>
+            </article>
+
+
+            <article>
+                <h3>:first-of-type</h3>
+                <p>
+                    La pseudo-clase <span>:first-of-type</span> de CSS representa el primer elemento de su tipo entre
+                    un grupo de elementos hermanos
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:first-of-type {
+    /* Definición de estilos */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:first-of-type {
+    color: red;
+    font-style: italic;
+}
+</code></pre>
+                <div>
+                    <p class="pseudos-first-of-type">Párrafo 1</p>
+                    <p class="pseudos-first-of-type">Párrafo 2</p>
+                    <p class="pseudos-first-of-type">Párrafo 4</p>
+                    <p class="pseudos-first-of-type">Párrafo 3</p>
+                </div>
+            </article>
+
+
+            <article>
+                <h3>:focus</h3>
+                <p>
+                    La pseudoclase <span>:focus</span> CSS representa un elemento (como una entrada de formulario) que
+                    ha recibido el foco.
+                    Generalmente se activa cuando el usuario hace clic, toca un elemento o lo selecciona con la tecla
+                    "Tab" del teclado.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">input:focus {
+    /* Definición de estilos */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">input:focus {
+    border-color: blue;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+button:focus {
+    outline: 4px dashed darkorange;
+}
+</code></pre>
+                <label for="username">Usuario:</label>
+                <input class="pseudos-focus" type="text" name="username">
+                <label for="contraseña">Contraseña:</label>
+                <input class="pseudos-focus" type="text" name="contraseña">
+                <button class="pseudos-focus">Focus</button>
+            </article>
+
+
+            <article>
+                <h3>:focus-visible</h3>
+                <p>
+                    La pseudoclase <span>:focus-visible</span> se aplica mientras un elemento coincide con la
+                    pseudo-clase :focus.
+                    Este selector es útil para proporcionar un indicador de enfoque diferente basado en la modalidad de
+                    entrada del usuario (ratón vs teclado).
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">input:focus-visible {
+    /* Definición de estilos */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">input:focus-visible {
+    outline: 2px solid green;
+    background-color: #f0f0f0;
+}
+</code></pre>
+                <label for="username">Usuario:</label>
+                <input class="pseudos-focus-visible" type="text" name="username">
+                <label for="contraseña">Contraseña:</label>
+                <input class="pseudos-focus-visible" type="text" name="contraseña"><br /><br />
+                <button class="pseudos-focus-visible">Prueba con el tab</button>
+            </article>
+
+
+            <article>
+                <h3>:focus-within</h3>
+                <p>
+                    La pseudoclase CSS <span>:focus-within</span> representa un elemento que ha recibido el foco o que
+                    contiene
+                    un elemento que ha recibido el foco. En otras palabras, representa un elemento que en sí coincide
+                    con la pseudoclase <span>:focus</span> o tiene descendientes que coincidan con <span>:focus</span>.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">form:focus-within {
+    /* Definición de estilos */
+}</code></pre>
+                <p>Este selector es útil, por tomar un ejemplo común, para resaltar un contenedor
+                    &ltform&gt completo cuando el usuario enfoca sobre uno de sus elementos &ltinput&gt.
+                </p>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">form:focus-within {
+    background: #ff8;
+    color: black;
+}
+</code></pre>
+                <form class="pseudos-focus-within">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" />
+                    <br />
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" />
+                </form>
+            </article>
+
+
+            <article>
+                <h3>:hover</h3>
+                <p>
+                    La pseudoclase <span>:hover</span> en CSS se utiliza para seleccionar y aplicar
+                    estilos a un elemento cuando el usuario coloca el cursor sobre él. Es comúnmente
+                    utilizado para proporcionar efectos visuales y de interactividad, como cambiar el
+                    color de fondo, resaltar bordes, mostrar información adicional, etc.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:hover {
+    /* Definición de estilos */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-css">elemento:hover {
+    background-color: gold;
+}
+</code></pre>
+                <a class="pseudos-hover" href="#pseudos-hover">Intenta pasar el mouse sobre este enlace.</a>
+            </article>
+            <article>
+                <h3>:in-range</h3>
+                <p>Selecciona un elemento (input) cuyo valor se encuentra dentro de un rango de valores determinado.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">input:in-range [Aqui va la sintaxis de cada propiedad];</code></pre>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">input:in-range {
+                background-color: rgba(0, 255, 0, 0.25);
+            }</code></pre>
+                Obtenemos aquí un cambio de CSS al estar el valor dentro de un rango determinado en el HTML. Esta
+                propiedad nos ahorra mucho código JS.
+            </article>
+            <article>
+                <h3>:invalid</h3>
+                <p>Selecciona un elemento, como por ejemplo un &lt;input>, cuyo estado es no válido.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">input:in-range [Aqui va la sintaxis de cada propiedad];</code></pre>
+                <p>Podemos comprobar URLs, Emails, etc</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">input:invalid {
+                background-color: pink;
+              }</code></pre>
+            </article>
+            <article>
+                <h3>:lang</h3>
+                <p>Selecciona un elemento según el idioma (valor del atributo lang de HTML).</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:lang(language) { propiedad: valor; }</code></pre>
+                <p>Por ejemplo, selecciona todos los párrafos en español.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">p:lang(es) {
+                color: blue;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:last-child</h3>
+                <p>Selecciona el último elemento de entre sus elementos hermanos.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:last-child { propiedad: valor; }</code></pre>
+                <p>Este selector es útil para estilizar el último elemento de un contenedor.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">div:last-child {
+                background-color: yellow;
+              }</code></pre>
+            </article>
+            <article>
+                <h3>:last-of-type</h3>
+                <p>Selecciona el último de entre los elementos hermanos de un tipo determinado.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:last-of-type { propiedad: valor; }</code></pre>
+                <p>Útil para aplicar estilos al último elemento de un tipo específico dentro de su contenedor.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">p:last-of-type {
+                font-weight: bold;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:link</h3>
+                <p>Selecciona todos los enlaces no visitados.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">a:link { propiedad: valor; }</code></pre>
+                <p>Perfecto para estilizar enlaces antes de que sean visitados por el usuario.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">a:link {
+                text-decoration: none;
+                color: blue;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:local-link</h3>
+                <p>Selecciona los enlaces que dirigen a páginas dentro de la misma página web que el documento activo.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">a:local-link { propiedad: valor; }</code></pre>
+                <p>Útil para destacar enlaces internos de un sitio web.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">a:local-link {
+                border-bottom: 1px dotted;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:not</h3>
+                <p>Selecciona elementos que no coinciden con una lista de selectores.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:not(selector) { propiedad: valor; }</code></pre>
+                <p>Este selector es útil para aplicar estilos a elementos que no coinciden con ciertos criterios.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">div:not(.class) {
+                opacity: 0.5;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:nth-child</h3>
+                <p>Selecciona elementos de entre una lista de elementos hermanos basándose en un patrón numérico.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:nth-child(an+b) { propiedad: valor; }</code></pre>
+                <p>Permite seleccionar elementos según su posición en un grupo de hermanos.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">li:nth-child(odd) {
+                background-color: grey;
+              }</code></pre>
+            </article>
+            <article>
+                <h3>:nth-of-type</h3>
+                <p>Selecciona elementos de entre una lista de elementos hermanos de un tipo determinado, basándose en un
+                    patrón numérico.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:nth-of-type(an+b) { propiedad: valor; }</code></pre>
+                <p>Usado para seleccionar elementos de un tipo específico, como todos los párrafos impares.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">p:nth-of-type(2n+1) {
+                color: red;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:nth-last-child</h3>
+                <p>Selecciona elementos de entre una lista de elementos hermanos, contando hacia atrás desde el último.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:nth-last-child(an+b) { propiedad: valor; }</code></pre>
+                <p>Permite seleccionar elementos basándose en su posición inversa en un grupo de hermanos.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">li:nth-last-child(odd) {
+                border: 1px solid black;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:nth-last-of-type</h3>
+                <p>Selecciona los elementos de entre una lista de elementos hermanos que son de un tipo determinado,
+                    contando hacia atrás desde el último.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:nth-last-of-type(an+b) { propiedad: valor; }</code></pre>
+                <p>Ideal para estilizar elementos de un tipo específico en su posición inversa, como el último párrafo
+                    par.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">p:nth-last-of-type(2n) {
+                padding: 5px;
+              }</code></pre>
+            </article>
+            <article>
+                <h3>:only-child</h3>
+                <p>Selecciona un elemento que no tiene elementos hermanos.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:only-child { propiedad: valor; }</code></pre>
+                <p>Este selector es útil para estilizar elementos que son únicos en su contenedor.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">div:only-child {
+                padding: 10px;
+                border: 1px solid black;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:only-of-type</h3>
+                <p>Selecciona un elemento que es el único de su tipo entre sus elementos hermanos.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">element:only-of-type { propiedad: valor; }</code></pre>
+                <p>Utiliza este selector para aplicar estilos a un elemento que es el único de su tipo en su contenedor.
+                </p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">p:only-of-type {
+                font-style: italic;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:optional</h3>
+                <p>Selecciona los elementos de formulario que no son obligatorios.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">input:optional { propiedad: valor; }</code></pre>
+                <p>Este selector puede ayudar a diferenciar entre campos de formulario opcionales y obligatorios.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">input:optional {
+                background-color: #f0f0f0;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:out-of-range</h3>
+                <p>Selecciona un elemento cuyo valor está fuera del rango establecido.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-css">input:out-of-range { propiedad: valor; }</code></pre>
+                <p>Este selector es útil para proporcionar retroalimentación visual cuando el valor de un campo de
+                    entrada está fuera del rango permitido.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">input:out-of-range {
+                border-color: red;
+              }</code></pre>
+            </article>
+
+            <article>
+                <h3>:past</h3>
+                <p>Selecciona los elementos que se encuentran antes del elemento activo, en un contexto de secuenciación
+                    temporal.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">element:past { propiedad: valor; }</code></pre>
+                <p>Usa este selector en medios paginados, como impresiones o presentaciones, para aplicar estilos a
+                    elementos que se han impreso o mostrado en páginas anteriores.</p>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">div:past {
+                color: gray;
+              }</code></pre>
+            </article>
+            <article>
+                <h3>:placeholder-shown</h3>
+                <p>La pseudo-clase <span>:placeholder-shown</span> de CSS representa cualquier elemento
+                    <span>&lt;input></span> o
+                    <span>&lt;textarea></span> que esté mostrando actualmente el texto de marcador de posición
+                    (placeholder).
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">/* Selecciona cualquier elemento con un placeholder activo */
+:placeholder-shown {
+    /* ... */
+}
+</code></pre>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">input {
+    border: 2px solid black;
+    padding: 3px;
+}
+
+input:placeholder-shown {
+    border-color: silver;
+}</code></pre>
+                <p>En pantallas angostas como teléfonos inteligentes, el ancho de los cuadros de búsqueda y otros campos
+                    de formulario pueden acortarse drásticamente. Esto puede provocar que el texto de marcador de
+                    posición se recorte de una manera no deseada. A menudo es útil alterar este comportamiento con la
+                    propiedad text-overflow. </p>
+                <pre class="line-numbers" data-line="1"><code class="language-css">input:placeholder-shown {
+text-overflow: ellipsis;
+}</code></pre>
+            </article>
+            <article>
+                <h3>:playing</h3>
+                <p>La pseudoclase <span>:playing</span> en CSS se utiliza para seleccionar y aplicar estilos a elementos
+                    reproducibles, como <span>audio</span> o <span>video</span>, que se encuentran en estado de
+                    reproducción. Un elemento se
+                    considera que está "playing" si actualmente está reproduciendo un recurso multimedia, o si
+                    ha detenido temporalmente la reproducción por razones que no son la intención del usuario,
+                    como la carga de datos (buffering) o una parada (stalled)
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:playing {
+/* propiedades CSS */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">:playing {
+  border: 5px solid green;
+}
+</code></pre>
+                Este código agregaría un borde sólido verde de 5 píxeles a los elementos de video mientras se están
+                reproduciendo
+            </article>
+
+            <article>
+                <h3>:paused</h3>
+                <p>La pseudoclase <span>:paused</span> en CSS se utiliza para seleccionar y aplicar estilos a elementos
+                    reproducibles, como <span>audio</span> o <span>video</span>, que se encuentran en estado de
+                    reproducción. Un elemento se
+                    considera que está "paused" si actualmente está reproduciendo un recurso multimedia, o si
+                    ha detenido temporalmente la reproducción por razones que no son la intención del usuario,
+                    como la carga de datos (buffering) o una parada (stalled)
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:paused {
+/* propiedades CSS */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">:paused {
+  border: 5px solid orange;
+}
+
+</code></pre>
+                Este código CSS agregará un borde sólido naranja de 5 píxeles a los elementos <span>video</span> cuando
+                estén pausados
+            </article>
+            <article>
+                <h3>:read-only</h3>
+                <p>La pseudoclase <span>:read-only</span> de CSS se utiliza para representar elementos no editables por
+                    el usuario,
+                    como input o textarea. Estos elementos son aquellos que no pueden ser modificados directamente, como
+                    un campo de un formulario que se presenta solo para lectura.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:read-only {
+/* propiedades CSS */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                Para formularios:
+                Cuando se quiere que el usuario verifique la información ingresada en un formulario sin poder
+                modificarla, se podría utilizar <span>:read-only</span> para estilizar esos elementos de manera que no
+                parezcan
+                campos clickeables:
+                <pre class="line-numbers" data-line="1"><code class="language-css">input:read-only,
+textarea:read-only {
+  border: 0;
+  box-shadow: none;
+  background-color: white;
+}
+</code></pre>
+                <h4>Para controles no formales:</h4>
+                Además de <span>&lt;input></span> y <span>&lt;textarea></span>, <span>:read-only</span> también puede
+                seleccionar
+                cualquier elemento que no sea editable:
+                reproduciendo
+                <pre class="line-numbers" data-line="1"><code class="language-css">p:read-only {
+  background-color: red;
+  color: white;
+}
+</code></pre>
+                Este último ejemplo haría que un párrafo no editable tenga un fondo rojo y texto blanco
+            </article>
+            <article>
+                <h3>:read-write</h3>
+                <p>La pseudoclase <span>:read-write</span> de CSS selecciona elementos que son editables por el usuario,
+                    como <span>&lt;input></span> o
+                    <span>&lt;textarea></span>. Esto permite aplicar estilos específicos a elementos de formulario que
+                    el
+                    usuario puede
+                    modificar.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:read-write {
+  /* propiedades CSS */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                Para controles de formulario:
+                Podrías querer aplicar estilos distintos a un <span>&lt;textarea></span> que es editable, resaltándolo
+                para
+                que el usuario sepa que puede interactuar con él:
+                <pre class="line-numbers" data-line="1"><code class="language-css">textarea:read-write {
+  box-shadow: inset 1px 1px 3px #ccc;
+  border-radius: 5px;
+}
+</code></pre>
+                Para controles no formales:
+                La pseudoclase :read-write también puede seleccionar cualquier elemento editable, como un párrafo con el
+                atributo contenteditable:
+                <pre class="line-numbers" data-line="1"><code class="language-css">p:read-write {
+  background-color: lime;
+}
+  </code></pre>
+                Estos ejemplos aplicarían un sombreado interior y bordes redondeados al <span>&lt;textarea></span>
+                editable,
+                y un fondo color lima a un párrafo editable, respectivamente
+            </article>
+            <article>
+                <h3>:required</h3>
+                <p>La pseudoclase :required en CSS se utiliza para seleccionar elementos de formulario como
+                    <span>&lt;input></span>,
+                    <span>select</span>, o <span>&lt;textarea></span> que tienen el atributo required. Este atributo se
+                    utiliza para indicar que un campo debe ser llenado antes de que el formulario pueda ser enviado. La
+                    pseudoclase es útil para resaltar estos campos obligatorios y asegurarse de que los usuarios no
+                    pasen por alto la necesidad de completarlos.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:required {
+  /* propiedades CSS */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-html">&lt;form>
+  &lt;label for="email_input">Enter an email address:</label>
+  &lt;input type="email" id="email_input" required />
+&lt;/form>
+</code></pre>
+                <pre class="line-numbers" data-line="1"><code class="language-css">input:required {
+  border-color: #800000; /* Dark red */
+  border-width: 3px;
+}
+
+input:required:invalid {
+  border-color: #c00000; /* Brighter red */
+}  </code></pre>
+                En este ejemplo, todos los campos de entrada (<span>&lt;input></span>) que son obligatorios tienen un
+                borde de color rojo oscuro. Si el campo es obligatorio y contiene un valor inválido, el borde se cambia
+                a un rojo más brillante para resaltar la necesidad de corrección​​.
+
+                Es importante considerar las cuestiones de accesibilidad al usar el atributo required. Por ejemplo, las
+                personas que utilizan tecnologías de asistencia como lectores de pantalla deben poder identificar qué
+                campos son obligatorios. Por ello, además del uso de color, es recomendable emplear texto descriptivo o
+                iconos para indicar la obligatoriedad del campo
+            </article>
+            <article>
+                <h3>:right</h3>
+                <p>La pseudoclase <span>:right</span> en CSS se utiliza junto con la regla @page para representar todas
+                    las páginas
+                    derechas de un documento impreso. Esto puede ser útil cuando se están definiendo estilos para la
+                    impresión de documentos y se desea aplicar estilos específicos a las páginas que estarán en el lado
+                    derecho del documento impreso.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">@page :right {
+  /* propiedades CSS */
+}
+</code></pre>
+                Para seleccionar todas las páginas derechas cuando se imprime un documento y definir sus márgenes, se
+                puede utilizar el siguiente código:
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">@page :right {
+  margin: 2in 3in;
+}</code></pre>
+                Si la dirección de escritura principal del documento es de izquierda a derecha, entonces la primera
+                página será una página :right. Si la dirección es de derecha a izquierda, entonces la primera página
+                será una página :left. Es importante señalar que esta pseudoclase solo puede usarse para cambiar las
+                propiedades de margen, relleno, borde y fondo del cuadro de la página. Todas las demás propiedades serán
+                ignoradas y solo el cuadro de la página, no el contenido del documento en la página, se verá afectado​
+            </article>
+            <article>
+                <h3>:root</h3>
+                <p>La pseudoclase :root en CSS se utiliza para seleccionar el elemento raíz del documento, que es el
+                    elemento &lt;html> en documentos HTML. Es útil para declarar variables CSS globales o para aplicar
+                    estilos que se quieren asegurar que sean de mayor especificidad que otros selectores.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:root {
+  /* propiedades CSS */
+}
+</code></pre>
+                Puedes definir variables CSS que estén disponibles globalmente en tu documento de la siguiente manera:
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">:root {
+  --color-principal: #333;
+  --espaciado-interior: 1rem;
+}
+
+/* Usar las variables en otro selector */
+body {
+  color: var(--color-principal);
+  padding: var(--espaciado-interior);
+}
+
+</code></pre>
+                En este ejemplo, --color-principal y --espaciado-interior son variables CSS definidas en el elemento
+                raíz y luego utilizadas en el cuerpo del documento. La pseudoclase :root tiene la especificidad más alta
+                para el elemento &lt;html>, por lo que los estilos definidos aquí superarán a los estilos definidos
+                directamente en el elemento &lt;html> sin esta pseudoclase.
+            </article>
+            <article>
+                <h3>:scope</h3>
+                <p>La pseudoclase :scope en CSS se utiliza para referenciar elementos que son un punto de referencia o
+                    alcance para que los selectores coincidan con ellos. Es especialmente útil en el contexto de las
+                    APIs del DOM, como querySelector(), querySelectorAll(), matches(), o Element.closest(), donde :scope
+                    se refiere al elemento en el que se llamó al método.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:scope {
+  /* propiedades CSS */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                Match de identidad usando JavaScript:
+                <pre class="line-numbers" data-line="1"><code class="language-css">const paragraph = document.getElementById("para");
+const output = document.getElementById("output");
+
+if (paragraph.matches(":scope")) {
+  output.textContent = "The first paragraph is its own scope, as expected!";
+}</code></pre>
+                Seleccionar hijos directos:
+                <pre class="line-numbers" data-line="1"><code class="language-css">const context = document.getElementById("context");
+const selected = context.querySelectorAll(":scope > div");
+</code></pre>
+                En el primer ejemplo, se utiliza :scope para verificar si un párrafo es su propio ámbito, mientras que
+                en el segundo, se seleccionan los hijos directos de un elemento ya recuperado. A nivel de hoja de
+                estilos, :scope es equivalente a :root, ya que actualmente no hay una forma de establecer explícitamente
+                un elemento de ámbito
+            </article>
+            <article>
+                <h3>:valid</h3>
+                <p>La pseudoclase :valid en CSS se usa para seleccionar cualquier elemento &lt;input> u otro elemento de
+                    formulario (&lt;form>) cuyo contenido pasa con éxito las restricciones de validación de HTML. Es muy
+                    útil para resaltar
+                    campos de formulario que contienen datos correctamente formateados según las reglas de validación
+                    del formulario. Esta retroalimentación visual puede ayudar a los usuarios a confirmar que sus datos
+                    están formateados correctamente.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:valid {
+                        /* propiedades CSS */
+                    }
+                </code></pre>
+                Para indicar visualmente que un campo de formulario es válido, puedes usar la pseudoclase :valid junto
+                con ::before o ::after para añadir iconos o indicadores:
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">input:valid + span::before {
+  content: "✓";
+  color: green;
+}
+</code></pre>
+                Este código muestra un icono de verificación verde al lado de un campo de entrada válido.
+
+            </article>
+            <article>
+                <h3>:target</h3>
+                <p>La pseudoclase :target en CSS se utiliza para estilizar un elemento único (el elemento objetivo) que
+                    tiene un ID que coincide con el fragmento de la URL.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:target {
+  /* propiedades CSS */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                Si tienes una URL como http://www.example.com/index.html#section2, el siguiente elemento HTML sería
+                seleccionado por el selector :target cuando la URL actual coincida con la anterior:
+                <pre class="line-numbers" data-line="1"><code class="language-css">&lt;section id="section2">Ejemplo&lt;/section>
+</code></pre>
+                En CSS, podrías resaltar este elemento con un borde sólido:
+                <pre class="line-numbers" data-line="1"><code class="language-css">:target {
+    border: 2px solid black;
+  }  
+</code></pre>
+                Este código agregaría un borde sólido verde de 5 píxeles a los elementos de video mientras se están
+                reproduciendo
+            </article>
+            <article>
+                <h3>:visited</h3>
+                <p>La pseudoclase :visited en CSS se aplica a los enlaces que el usuario ya ha visitado. Por razones de
+                    privacidad, los estilos que se pueden modificar utilizando este selector son muy limitados. Se
+                    aplica solo a los elementos <a> y <area> que tienen un atributo href.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">:visited {
+  /* propiedades CSS */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">a {
+  background-color: white;
+  border: 1px solid white;
+}
+
+a:visited {
+  background-color: yellow;
+  border-color: hotpink;
+  color: hotpink;
+}
+</code></pre>
+                En este ejemplo, los enlaces visitados se mostrarán con un fondo amarillo, un borde fucsia y texto del
+                mismo color. Las propiedades que se pueden modificar con :visited incluyen color, background-color,
+                border-color, etc., pero las restricciones de privacidad impiden cambios en otros estilos. Además, las
+                funciones de CSS que pueden revelar si un enlace ha sido visitado (como window.getComputedStyle)
+                mostrarán los valores de estilo del estado no visitado en lugar de los reales para :visited
+            </article>
+        </section>
+
+        <section>
+            <h2>PSEUDOELEMENTOS</h2>
+            <article>
+                <h3>::after</h3>
+                <p>El pseudo-elemento ::after en CSS se utiliza para crear un pseudo-elemento que es el último hijo del
+                    elemento seleccionado. Se emplea frecuentemente para agregar contenido cosmético a un elemento
+                    usando la propiedad content. Por defecto, es en línea.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">::after {
+  content: "texto o imagen";
+  /* Otras propiedades CSS */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                Uso simple:
+                <pre class="line-numbers" data-line="1"><code class="language-css">.exciting-text::after {
+  content: " EXCITING!";
+  color: green;
+}
+</code></pre>
+                Ejemplo decorativo:
+                <pre class="line-numbers" data-line="1"><code class="language-css">.ribbon::after {
+  content: "This is a fancy orange box.";
+  background-color: #ffba10;
+  border-color: black;
+  border-style: dotted;
+}
+
+  </code></pre>
+                Si no se especifica la propiedad content, o si tiene un valor inválido, normal o none, entonces el
+                pseudo-elemento ::after no se renderiza, como si tuviera display: none
+            </article>
+            <article>
+                <h3>::before</h3>
+                <p>El pseudoelemento ::before en CSS se utiliza para insertar contenido antes del contenido de un
+                    elemento seleccionado. Es una forma de añadir contenido de forma dinámica con CSS sin necesidad de
+                    modificar el HTML. La sintaxis básica es la siguiente:
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">selector::before {
+  content: "texto o referencia a un contenido";
+  /* Otros estilos */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                Añadir texto antes de un elemento:
+
+                <pre class="line-numbers" data-line="1"><code class="language-css">p::before {
+  content: "Nota: ";
+  font-weight: bold;
+}
+</code></pre>
+                Este código añadiría la palabra "Nota: " antes del contenido de todos los párrafos (&lt;p>), y lo
+                mostraría en negrita.
+                Crear formas o decoraciones antes de un elemento:
+                <pre class="line-numbers" data-line="1"><code class="language-css">div::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+}
+      </code></pre>
+                El pseudoelemento ::before es un recurso muy poderoso para diseñadores web que permite una gran
+                flexibilidad sin alterar la estructura del HTML.
+            </article>
+            <article>
+                <h3>::first-letter</h3>
+                <p>
+                    El pseudo-elemento ::first-letter en CSS se utiliza para aplicar estilos a la primera letra de la
+                    primera línea de un contenedor de bloque, siempre que no esté precedida por otro contenido, como
+                    imágenes o tablas en línea. Algunas de las propiedades de CSS que se pueden usar con
+                    ::first-letter incluyen:
+                <ul>
+                    <li>Todas las propiedades de fuente.
+                    </li>
+                    <li>Todas las propiedades de fondo.
+                    </li>
+                    <li>Todas las propiedades de margen.
+                    </li>
+                    <li>Todas las propiedades de relleno (padding).
+                    </li>
+                    <li>Todas las propiedades de borde.
+                    </li>
+                    <li>Propiedades como color, decoración de texto, sombra de texto, transformación de texto, espaciado
+                        entre letras y palabras, altura de línea, decoración de texto (color, línea, estilo), sombra de
+                        caja, flotación y alineación vertical.
+                    </li>
+                </ul>
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">::first-letter {
+  /* propiedades CSS */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                En este ejemplo, la primera letra del párrafo (&lt;p>) se mostrará un 200% más grande que el resto del
+                texto y en color rojo. Este estilo se aplica solo a la primera letra del párrafo que sigue
+                inmediatamente después de un elemento
+                &lt;h2>.
+                <pre class="line-numbers" data-line="1"><code class="language-css">p::first-letter {
+  font-size: 200%;
+  color: red;
+}
+</code></pre>
+            </article>
+            <article>
+                <h3>::first-line</h3>
+                <p>El pseudoelemento ::first-line de CSS se utiliza para aplicar un estilo único a la primera línea de
+                    un bloque o un elemento en línea siempre que ese elemento esté dispuesto como un bloque (es decir,
+                    no en línea o en cajas flexibles). Es especialmente útil para dar formato a la primera línea de un
+                    párrafo para captar la atención o simplemente para aplicar un estilo tipográfico.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">selector::first-line {
+  /* reglas de estilo */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                Cambiar la fuente y el color de la primera línea de un párrafo:
+                <pre class="line-numbers" data-line="1"><code class="language-css">p::first-line {
+  font-weight: bold;
+  color: blue;
+}
+</code></pre>
+                Es importante señalar que ::first-line sólo puede aplicar ciertas propiedades CSS. Las propiedades que
+                pueden ser aplicadas incluyen fuentes, colores, fondo, palabra y letra espaciado, y texto decoración
+                entre otros. No se pueden aplicar propiedades como el borde, el margen, el padding o el display.
+
+                Además, ::first-line sólo afecta al contenido que fluye normalmente dentro de un elemento; no afectará
+                al contenido que ha sido absolutamente posicionado o flotado fuera del flujo normal del documento.
+            </article>
+            <article>
+                <h3>::placeholder</h3>
+                <p>El pseudo-elemento ::placeholder en CSS se utiliza para aplicar estilos al texto provisional
+                    (placeholder) en un elemento &lt;input> o &lt;textarea>. Solo un subconjunto de las propiedades CSS
+                    que se aplican al pseudo-elemento ::first-line pueden ser utilizadas con ::placeholder
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">::placeholder {
+  /* propiedades CSS */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                En este ejemplo, el texto provisional del campo &lt;input> se mostrará en color rojo, con un tamaño de
+                fuente del 120% del tamaño normal y en cursiva
+                <pre class="line-numbers" data-line="1"><code class="language-css">input::placeholder {
+  color: red;
+  font-size: 1.2em;
+  font-style: italic;
+}
+</code></pre>
+            </article>
+            <article>
+                <h3>::marker</h3>
+                <p>El pseudo-elemento ::marker en CSS se utiliza para seleccionar la caja de marcadores de un elemento
+                    de lista, como &lt;li> o &lt;summary>, que generalmente contiene una viñeta o un número. Este
+                    pseudo-elemento es aplicable a cualquier elemento o pseudo-elemento configurado para
+                    display: list-item
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">::marker {
+  /* propiedades CSS */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                En este ejemplo, los marcadores (::marker) de los elementos de la lista (&lt;li>) en la lista
+                desordenada (
+                &lt;ul>) se muestran en color rojo y con un tamaño de fuente aumentado a 1.5 veces el tamaño normal
+                <pre class="line-numbers" data-line="1"><code class="language-css">ul li::marker {
+  color: red;
+  font-size: 1.5em;
+}
+</code></pre>
+                Es importante señalar que ::first-line sólo puede aplicar ciertas propiedades CSS. Las
+                propiedades que
+                pueden ser aplicadas incluyen fuentes, colores, fondo, palabra y letra espaciado, y texto
+                decoración
+                entre otros. No se pueden aplicar propiedades como el borde, el margen, el padding o el display.
+
+                Además, ::first-line sólo afecta al contenido que fluye normalmente dentro de un elemento; no
+                afectará
+                al contenido que ha sido absolutamente posicionado o flotado fuera del flujo normal del
+                documento.
+            </article>
+            <article>
+                <h3>::backdrop</h3>
+                <p>
+                    El pseudo-elemento ::backdrop en CSS se utiliza para crear una caja detrás de un elemento en la pila
+                    de la capa superior. Esta caja se muestra inmediatamente debajo del elemento en la capa superior,
+                    sirviendo como un fondo que puede ocultar el contenido subyacente. Es comúnmente usado para
+                    elementos que se muestran en pantalla completa.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">::backdrop {
+  /* propiedades CSS */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                En este ejemplo, el ::backdrop aplicará un fondo negro con una opacidad del 50% detrás del elemento de
+                la capa superior, como un modal a pantalla completa, creando un efecto de oscurecimiento del contenido
+                subyacente.
+                <pre class="line-numbers" data-line="1"><code class="language-css">::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+</code></pre>
+            </article>
+            <article>
+                <h3>::grammar-error</h3>
+                <p>El pseudoelemento ::grammar-error de CSS se utiliza para aplicar estilos a partes del texto que han
+                    sido identificadas como errores gramaticales por la función de revisión gramatical del navegador.
+                    Esto es útil para resaltar y proporcionar retroalimentación visual sobre posibles errores en texto
+                    editable, como en un campo de formulario o en un editor de texto en línea.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">::grammar-error {
+  /* reglas de estilo */
+}
+</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">::grammar-error {
+  color: red;
+  text-decoration: underline wavy red;
+}
+</code></pre>
+                Este ejemplo cambiará el color de texto de los errores gramaticales a rojo y los subrayará con una línea
+                ondulada roja, típicamente utilizada para indicar errores.
+            </article>
+            <article>
+                <h3>::selection</h3>
+                <p>El pseudoelemento ::selection de CSS se utiliza para cambiar el estilo de la porción de un documento
+                    que ha sido seleccionada por el usuario (por ejemplo, texto que el usuario ha resaltado con el
+                    ratón). Este estilo puede ser útil para hacer la selección más visible o para hacerla coincidir con
+                    el esquema de color de tu sitio web o aplicación.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">::selection {
+  /* reglas de estilo */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">::selection {
+  background: blue;
+  color: white;
+}
+</code></pre>
+                Este código CSS cambiará el fondo de cualquier texto seleccionado a azul y el texto mismo a blanco.
+            </article>
+            <article>
+                <h3>::spelling-error</h3>
+                <p>El pseudoelemento ::spelling-error en CSS se utiliza para aplicar estilos personalizados a
+                    fragmentos de texto que han sido identificados como errores ortográficos por la corrección
+                    ortográfica automática del navegador. Es similar al pseudoelemento ::grammar-error, pero se centra
+                    específicamente en errores de ortografía.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">::spelling-error {
+  /* reglas de estilo */
+}</code></pre>
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers" data-line="1"><code class="language-css">::spelling-error {
+  color: red;
+  text-decoration: underline;
+}
+</code></pre>
+                Este código cambiará el color del texto identificado como un error ortográfico a rojo y lo subrayará, lo
+                que facilita su identificación visual por parte del usuario.
+            </article>
+
+
+
+
+        </section>
+    </main>
+    <footer>
+        <div>Jaime Rabasco Ronda</div>
+        <a href="https://x.com/jaimerr" class="social"><img src="icon/x-twitter.svg" alt="Twitter"></a>
+        <a href="https://github.com/jaimerabasco" class="social"><img src="icon/github.svg" alt="GitHub"></a>
+    </footer>
+</body>
+
+</html>
