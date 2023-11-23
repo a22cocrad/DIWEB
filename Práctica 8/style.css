@@ -1,0 +1,51 @@
+* {
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu>li {
+    float: left;
+}
+
+.menu li a {
+    background: lightseagreen;
+    color: #FFF;
+    display: block;
+    border: 1px solid;
+    padding: 10px 10px;
+}
+
+.menu li .flecha {
+    font-size: 10px;
+    padding-left: 5px;
+}
+
+.menu li a:not(:last-child) .flecha {
+    display: inline;
+}
+
+.menu li a:hover {
+    background: lightseagreen;
+}
+
+.menu li ul {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+}
+
+.menu li:hover>ul {
+    display: block;
+}
+
+.menu li ul li {
+    position: relative;
+}
+
+.menu li ul li ul {
+    right: -150px;
+    top: 0;
+}
