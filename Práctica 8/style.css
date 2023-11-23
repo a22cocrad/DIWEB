@@ -5,9 +5,13 @@
     margin: 0;
     padding: 0;
 }
+ul.menu{
+    display: flex;
+}
 
 .menu>li {
-    float: left;
+    display: inline-block;
+    min-width: 100px;
 }
 
 .menu li a {
