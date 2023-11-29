@@ -1,0 +1,120 @@
+html, body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    background-color: lightgreen;
+}
+
+header {
+    text-align: center;
+    background-color: lightgray;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+nav {
+    background-color: lightcoral;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+nav a {
+    display: inline-block;
+    margin: 0 40px;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 10px;
+    color: black;
+    background-color: white;
+}
+
+nav a:hover {
+    background-color: lightblue;
+}
+
+main, aside {
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+main {
+    width: 70%;
+    padding: 20px;
+    background-color: lightskyblue;
+}
+
+aside {
+    width: 29.6%;
+    background-color: aquamarine;
+}
+
+main article {
+    margin: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    display: inline-block;
+    width: 25%; 
+}
+
+.archive{
+    margin: 25px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: bisque;
+}
+
+.archive li{
+    list-style: none;
+    display: inline-block;
+    width: 49%;
+}
+
+.advertising {
+    margin: 25px;
+    border: 1px solid black;
+    padding: 15px;
+    text-align: center;
+    background-color: lightsteelblue;
+}
+
+.advertising img {
+    width: 40%;
+    height: 40%;
+    display: inline-block;
+}
+
+footer {
+    border: 1px solid black;
+    background-color: cadetblue;
+    padding: 10px;
+}
+
+footer p{
+    font-size: 30px;
+    background-color: aqua;
+    display: inline-block;
+}
+
+.social-icons{
+    background-color: brown;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 60px;
+    height: 60px;
+    margin: 0 5px;
+    display: block;
+    padding: 10px;
+}
+
+.social-icons a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    font-size: 30px;
+    margin: 10px;
+}
